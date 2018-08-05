@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const n = 64;
+    let x = 4;
+    let y = 2;
+    let M = [];
+    for (let i = 0; i < n; i++) {
+        M[i] = [];
+    }
+
+    // 方法1:
+    // 判断i和j是否相等  如果相等 证明在中间
+    // function diagonal() {
+    //     for (let i = 0; i < n; ++i) {
+    //         for (let j = 0; j < n; ++j) {
+    //             if (i === j) {
+    //                 M[i][j] = x;
+    //             }
+    //             else {
+    //                 M[i][j] = y;
+    //             }
+    //         }
+    //     }
+    // }
+
+    // 方法2:
+    //先全部填充 然后再覆盖 中间的
+    // function diagonal() {
+    //     for (let i = 0; i < n; ++i) {
+    //     	for (let j = 0; j < n; ++j) {
+    //     		M[i][j] = y;
+    //     	}
+    //     }
+    //     for (let i = 0; i < n; ++i) {
+    //     	M[i][i] = x;
+    //     }
+    // }
+
+
+    // 方法3:
+    // 先填充左边的 再填充中间的 最后填充右边的
+    function diagonal() {
+        for (let i = 0; i < n; ++i) {
+            for (let j = 0; j < i; ++j) {
+                M[i][j] = y;
+            }
+            M[i][i] = x;
+            for (let j = i + 1; j < n; ++j) {
+                M[i][j] = y;
+            }
+        }
+    }
+
+
+
+    diagonal();
+    // 在屏幕上输出.
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            document.write(M[i][j]);
+        }
+        document.write("<br/>");
+    }
+
+</script>
+
+</body>
+</html>
