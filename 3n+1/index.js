@@ -10,7 +10,7 @@ function iterative_Collatz(n) {
     return L;
 }
 
-function memoized_Collatz(v,n) {
+function memoized_Collatz(v, n) {
     // 如果n不在数组v的范围之内, 先转换到合理范围之内并计算偏移D.
     let D = 0;
     while (n >= v.length) {
@@ -27,16 +27,17 @@ function memoized_Collatz(v,n) {
 
 function main() {
     // 利用备忘录保存已算出的值, 适合多次求解.
-    let v=[];
+    let v = [];
     v[1] = 1;
     // 测试迭代和备忘录计算结果是否一致, 测试范围为[1, max].
     let max = 100000;
     let equal = true;
-    for (let n = 1; n <= max; ++n){
+    for (let n = 1; n <= max; ++n) {
         if (iterative_Collatz(n) !== memoized_Collatz(v, n)) {
             equal = false;
         }
     }
     console.log(equal ? "相等" : "不相等")
 }
+
 main();
