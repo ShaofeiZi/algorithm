@@ -1,10 +1,7 @@
+const generateArray = require('../../util/arrayUtil');
 // const S = [5, 2, 4, 6, 1, 3];
-const S = [];
-let n =0;
-while (n<10000){
-    S.push(Math.ceil(Math.random()*100));
-    ++n;
-}
+const S = generateArray(10000);
+
 function insertionSort(S) {
     if (S.length <= 1) {
         return S;
@@ -20,6 +17,7 @@ function insertionSort(S) {
     }
     return S;
 }
+
 console.time('插入排序');
 insertionSort(S);
 console.timeEnd('插入排序');
