@@ -12,4 +12,6 @@ function generateArray(Quantity) {
     return S;
 
 }
+
 module.exports = generateArray;
+
